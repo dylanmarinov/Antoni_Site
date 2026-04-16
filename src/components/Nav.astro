@@ -24,7 +24,7 @@ const navLinks = [
       {navLinks.map(link => (
         <li><a href={link.href}>{link.label}</a></li>
       ))}
-      <li><a href="#contact" class="nav-cta btn btn-primary">Get In Touch</a></li>
+      <li><a href="#contact" class="nav-cta">Get In Touch</a></li>
     </ul>
   </div>
 </nav>
@@ -35,14 +35,14 @@ const navLinks = [
     top: 0; left: 0; right: 0;
     z-index: 1000;
     padding: 20px 24px;
-    transition: background 0.35s ease, padding 0.35s ease, box-shadow 0.35s ease;
+    transition: background 0.3s ease, padding 0.3s ease, box-shadow 0.3s ease;
   }
 
   #main-nav.scrolled {
-    background: rgba(18, 40, 73, 0.97);
-    backdrop-filter: blur(12px);
+    background: rgba(14,14,14,0.96);
+    backdrop-filter: blur(16px);
     padding: 12px 24px;
-    box-shadow: 0 2px 20px rgba(0,0,0,0.25);
+    box-shadow: 0 1px 0 rgba(255,255,255,0.05);
   }
 
   .nav-inner {
@@ -61,16 +61,20 @@ const navLinks = [
   }
 
   .brand-name {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.2rem;
-    font-weight: 700;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 800;
     color: var(--white);
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
   }
 
   .brand-tag {
-    font-size: 0.68rem;
-    letter-spacing: 0.08em;
-    color: var(--gold);
+    font-family: 'Inter', sans-serif;
+    font-size: 0.63rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--teal);
     font-weight: 500;
   }
 
@@ -78,26 +82,28 @@ const navLinks = [
     display: flex;
     list-style: none;
     align-items: center;
-    gap: 8px;
+    gap: 2px;
   }
 
   .nav-links a {
-    color: rgba(255,255,255,0.85);
-    font-size: 0.88rem;
-    font-weight: 500;
+    font-family: 'Montserrat', sans-serif;
+    color: rgba(255,255,255,0.65);
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
     padding: 6px 12px;
-    border-radius: 6px;
+    border-radius: 4px;
     transition: color 0.2s, background 0.2s;
   }
 
-  .nav-links a:hover { color: var(--white); background: rgba(255,255,255,0.1); }
+  .nav-links a:hover { color: var(--white); background: rgba(255,255,255,0.06); }
 
   .nav-cta {
-    padding: 10px 22px !important;
-    background: var(--gold) !important;
-    color: var(--navy-dark) !important;
-    font-weight: 600 !important;
-    border-radius: 50px !important;
+    background: var(--teal) !important;
+    color: var(--dark) !important;
+    padding: 9px 20px !important;
+    font-weight: 700 !important;
   }
   .nav-cta:hover { background: var(--gold-light) !important; }
 
@@ -126,7 +132,8 @@ const navLinks = [
       position: absolute;
       top: 100%; left: 0; right: 0;
       flex-direction: column;
-      background: var(--navy-dark);
+      background: var(--dark-2);
+      border-top: 1px solid rgba(255,255,255,0.06);
       padding: 20px 24px 28px;
       gap: 4px;
     }

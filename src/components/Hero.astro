@@ -12,10 +12,13 @@
   </div>
 
   <div class="hero-content">
-    <p class="hero-label reveal">Tampa Bay Area REALTOR®</p>
+    <div class="hero-tag reveal">
+      <span class="tag-dot"></span>
+      Tampa Bay Area REALTOR®
+    </div>
     <h1 class="hero-title reveal">
-      Your Trusted Guide to <br />
-      <span class="gold-text">Florida Real Estate</span>
+      Your Trusted Guide<br />
+      to <span class="teal-text">Florida Real Estate</span>
     </h1>
     <p class="hero-sub reveal">
       21+ Years of Experience &nbsp;·&nbsp; Investor-Friendly &nbsp;·&nbsp; First-Time Homebuyer Specialist
@@ -44,7 +47,7 @@
   </div>
 
   <a href="#about" class="scroll-hint" aria-label="Scroll down">
-    <span class="scroll-arrow"></span>
+    <span class="scroll-line"></span>
   </a>
 </section>
 
@@ -72,7 +75,8 @@
     object-fit: cover;
     object-position: center;
     transform: scale(1.05);
-    animation: zoomOut 8s ease forwards;
+    animation: zoomOut 10s ease forwards;
+    filter: brightness(0.4);
   }
 
   @keyframes zoomOut {
@@ -84,65 +88,79 @@
     position: absolute;
     inset: 0;
     background: linear-gradient(
-      160deg,
-      rgba(18,40,73,0.82) 0%,
-      rgba(18,40,73,0.65) 50%,
-      rgba(18,40,73,0.78) 100%
+      to bottom,
+      rgba(14,14,14,0.5) 0%,
+      rgba(14,14,14,0.2) 50%,
+      rgba(14,14,14,0.8) 100%
     );
   }
 
   .hero-content {
     position: relative;
     z-index: 1;
-    max-width: 780px;
+    max-width: 860px;
   }
 
-  .hero-label {
-    font-size: 0.78rem;
-    font-weight: 600;
-    letter-spacing: 0.22em;
+  .hero-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
     text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 16px;
+    color: var(--teal);
+    margin-bottom: 24px;
     transition-delay: 0.1s;
   }
 
+  .tag-dot {
+    display: inline-block;
+    width: 6px; height: 6px;
+    background: var(--teal);
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
   .hero-title {
-    font-size: clamp(2.6rem, 6vw, 4.5rem);
-    font-weight: 700;
+    font-size: clamp(2.8rem, 6vw, 5.2rem);
+    font-weight: 800;
     color: var(--white);
-    margin-bottom: 20px;
+    margin-bottom: 24px;
+    line-height: 1.05;
     transition-delay: 0.2s;
   }
 
-  .gold-text { color: var(--gold); }
+  .teal-text { color: var(--teal); }
 
   .hero-sub {
-    font-size: 1.05rem;
-    color: rgba(255,255,255,0.8);
-    margin-bottom: 40px;
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    color: rgba(255,255,255,0.6);
+    margin-bottom: 44px;
     letter-spacing: 0.02em;
     transition-delay: 0.3s;
   }
 
   .hero-actions {
     display: flex;
-    gap: 16px;
+    gap: 14px;
     justify-content: center;
     flex-wrap: wrap;
-    margin-bottom: 64px;
+    margin-bottom: 72px;
     transition-delay: 0.4s;
   }
 
   .hero-stats {
     display: flex;
     align-items: center;
-    gap: 32px;
-    background: rgba(255,255,255,0.08);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255,255,255,0.15);
-    border-radius: 16px;
-    padding: 24px 40px;
+    gap: 40px;
+    background: rgba(14,14,14,0.7);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(0,212,170,0.2);
+    border-radius: 8px;
+    padding: 28px 48px;
     flex-wrap: wrap;
     justify-content: center;
   }
@@ -151,54 +169,57 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 4px;
+    gap: 6px;
   }
 
   .stat-num {
-    font-family: 'Playfair Display', serif;
-    font-size: 2rem;
-    font-weight: 700;
-    color: var(--gold);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: var(--teal);
     line-height: 1;
   }
 
   .stat-label {
-    font-size: 0.75rem;
-    letter-spacing: 0.1em;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.68rem;
+    letter-spacing: 0.14em;
     text-transform: uppercase;
-    color: rgba(255,255,255,0.7);
+    color: rgba(255,255,255,0.5);
   }
 
   .stat-divider {
     width: 1px;
-    height: 40px;
-    background: rgba(255,255,255,0.2);
+    height: 44px;
+    background: rgba(0,212,170,0.2);
   }
 
   .scroll-hint {
     position: absolute;
-    bottom: 36px;
+    bottom: 32px;
     left: 50%;
     transform: translateX(-50%);
     z-index: 1;
-    animation: bounce 2s infinite;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: scrollPulse 2s ease-in-out infinite;
   }
 
-  .scroll-arrow {
+  .scroll-line {
     display: block;
-    width: 20px; height: 20px;
-    border-right: 2px solid rgba(255,255,255,0.6);
-    border-bottom: 2px solid rgba(255,255,255,0.6);
-    transform: rotate(45deg);
+    width: 1px;
+    height: 40px;
+    background: linear-gradient(to bottom, var(--teal), transparent);
   }
 
-  @keyframes bounce {
-    0%, 100% { transform: translateX(-50%) translateY(0); }
-    50%       { transform: translateX(-50%) translateY(8px); }
+  @keyframes scrollPulse {
+    0%, 100% { opacity: 0.6; transform: translateX(-50%) translateY(0); }
+    50% { opacity: 1; transform: translateX(-50%) translateY(6px); }
   }
 
   @media (max-width: 600px) {
     .stat-divider { display: none; }
-    .hero-stats { gap: 20px; padding: 20px 24px; }
+    .hero-stats { gap: 24px; padding: 24px 28px; }
   }
 </style>

@@ -19,7 +19,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
     </div>
 
     <div class="about-text reveal from-right">
-      <p class="section-label reveal">About Antoni</p>
+      <p class="section-label">About Antoni</p>
       <h2 class="section-title">Your Florida Real Estate Expert</h2>
       <span class="line-draw"></span>
 
@@ -47,30 +47,30 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
       <ul class="about-creds stagger">
         <li>
-          <span class="cred-icon">✦</span>
+          <span class="cred-icon">→</span>
           21+ Years at Charles Rutenberg Realty
         </li>
         <li>
-          <span class="cred-icon">✦</span>
+          <span class="cred-icon">→</span>
           Licensed Florida REALTOR®
         </li>
         <li>
-          <span class="cred-icon">✦</span>
+          <span class="cred-icon">→</span>
           Investment Property Specialist
         </li>
         <li>
-          <span class="cred-icon">✦</span>
+          <span class="cred-icon">→</span>
           First-Time Homebuyer Specialist
         </li>
         <li>
-          <span class="cred-icon">✦</span>
+          <span class="cred-icon">→</span>
           Greater Tampa Bay Area Market Expert
         </li>
       </ul>
 
       <div class="about-actions">
         <a href="#contact" class="btn btn-primary">Work With Me</a>
-        <a href="https://gocrr.com/" target="_blank" rel="noopener noreferrer" class="btn btn-navy">
+        <a href="https://gocrr.com/" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">
           Charles Rutenberg Realty
         </a>
       </div>
@@ -84,6 +84,8 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
     background: var(--off-white);
   }
 
+  #about .section-title { color: var(--text); }
+
   .about-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -91,14 +93,13 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
     align-items: center;
   }
 
-  /* Image side */
   .about-image-wrap {
     position: relative;
     transition-delay: 0s;
   }
 
   .about-img-frame {
-    border-radius: 20px;
+    border-radius: 8px;
     overflow: hidden;
     box-shadow: var(--shadow-lg);
   }
@@ -118,50 +119,54 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
     position: absolute;
     bottom: 24px;
     right: 32px;
-    background: var(--gold);
-    color: var(--navy-dark);
-    border-radius: 16px;
+    background: var(--teal);
+    color: var(--dark);
+    border-radius: 8px;
     padding: 20px 24px;
     text-align: center;
-    box-shadow: var(--shadow);
+    box-shadow: 0 8px 32px rgba(0,212,170,0.3);
   }
 
   .badge-num {
     display: block;
-    font-family: 'Playfair Display', serif;
-    font-size: 2.2rem;
-    font-weight: 700;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.4rem;
+    font-weight: 800;
     line-height: 1;
   }
 
   .badge-text {
-    font-size: 0.75rem;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.68rem;
     font-weight: 600;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
-    line-height: 1.4;
+    line-height: 1.5;
   }
 
-  /* Text side */
   .about-text {
     transition-delay: 0.15s;
   }
 
+  .about-text .section-label { color: var(--teal); }
+  .about-text .section-title { color: var(--text); }
+
   .about-text p {
-    color: #4A4A5A;
+    color: #555;
     margin-bottom: 18px;
-    font-size: 1rem;
+    font-size: 0.97rem;
+    line-height: 1.85;
   }
 
-  .about-text strong { color: var(--navy); }
+  .about-text strong { color: var(--dark); font-weight: 600; }
 
   .text-link {
-    color: var(--gold);
+    color: var(--teal-dim);
     font-weight: 600;
     border-bottom: 1px solid currentColor;
     transition: opacity 0.2s;
   }
-  .text-link:hover { opacity: 0.75; }
+  .text-link:hover { opacity: 0.7; }
 
   .about-creds {
     list-style: none;
@@ -175,14 +180,16 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
     display: flex;
     align-items: center;
     gap: 10px;
-    font-size: 0.95rem;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.92rem;
     font-weight: 500;
     color: var(--text);
   }
 
   .cred-icon {
-    color: var(--gold);
-    font-size: 0.7rem;
+    color: var(--teal-dim);
+    font-size: 0.85rem;
+    font-weight: 700;
     flex-shrink: 0;
   }
 
