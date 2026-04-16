@@ -1,0 +1,197 @@
+---
+// To add more reviews, copy an existing block and paste in your real review text.
+// https://www.zillow.com/profile/Antoni%20D%20Marinov#reviews
+
+const reviews = [
+  {
+    name: "Verified Zillow Client",
+    date: "2025",
+    rating: 5,
+    text: "Amazing realtor. Has helped me purchase multiple homes in 2025 and is extremely knowledgeable about the greater Tampa Bay Area. He truly is a one-of-a-kind realtor who is thoroughly committed to helping every client purchase a home that they will be happy with in every way possible. I appreciated his level of attention and detail to inspect each home that we toured, and he was always forward with informing me about any issues with the house that he could see posing a problem for me. Would highly recommend.",
+    transactionType: "Buyer",
+  },
+  {
+    name: "Verified Zillow Client",
+    date: "2025",
+    rating: 5,
+    text: "Anthony has deep knowledge of the local market and always makes sure he maximizes the value for his clients. He made sure all our needs are met and even when we decided to pull out of the market, he did not question our choice. No pressure on us to sell whatsoever. Will list with him again. Highly recommend!",
+    transactionType: "Seller",
+  },
+  {
+    name: "Verified Zillow Client",
+    date: "2026",
+    rating: 5,
+    text: "Super excited — Antoni is very professional and made this process super easy and fun. Super honest and friendly. He was always available to speak with us and answer all of our questions and concerns. We would recommend him 100%!",
+    transactionType: "Buyer",
+  },
+  {
+    name: "Verified Zillow Client",
+    date: "2026",
+    rating: 5,
+    text: "We just bought our first home in Clearwater, and Antoni was amazing from the very beginning to the last. He has been very patient and helpful, and we felt that he really cares about us getting the right home rather than making his sale. Antoni has been exceptionally professional in every direction yet very personable — we felt like we were hanging out with our good friend whenever we had meetings with him.",
+    transactionType: "First-Time Buyer",
+  },
+];
+---
+
+<section id="reviews">
+  <div class="container">
+    <div class="reviews-header reveal">
+      <p class="section-label">Client Reviews</p>
+      <h2 class="section-title">What My Clients Say</h2>
+      <span class="line-draw" style="margin:0 auto 20px;"></span>
+      <p class="section-sub">
+        Real reviews from real clients on&nbsp;
+        <a href="https://www.zillow.com/profile/Antoni%20D%20Marinov#reviews" target="_blank" rel="noopener noreferrer" class="zillow-link">
+          Zillow
+        </a>.
+      </p>
+    </div>
+
+    <div class="reviews-grid stagger">
+      {reviews.map(review => (
+        <a
+          class="review-card"
+          href="https://www.zillow.com/profile/Antoni%20D%20Marinov#reviews"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={`Read review on Zillow`}
+        >
+          <div class="review-quote">&ldquo;</div>
+          <div class="review-stars" aria-label={`${review.rating} out of 5 stars`}>
+            {"★".repeat(review.rating)}{"☆".repeat(5 - review.rating)}
+          </div>
+          <blockquote class="review-text">{review.text}</blockquote>
+          <div class="review-footer">
+            <div class="reviewer-info">
+              <strong class="reviewer-name">{review.name}</strong>
+              <span class="reviewer-meta">{review.transactionType} · {review.date}</span>
+            </div>
+            <img
+              src="https://www.zillowstatic.com/s3/homepage/static/zillowlogo_2x.png"
+              alt="Zillow"
+              class="zillow-logo"
+              width="60"
+            />
+          </div>
+        </a>
+      ))}
+    </div>
+
+    <div class="reviews-cta reveal">
+      <a
+        href="https://www.zillow.com/profile/Antoni%20D%20Marinov#reviews"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn btn-primary"
+      >
+        See All Reviews on Zillow
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  #reviews {
+    background: var(--off-white);
+  }
+
+  .reviews-header {
+    text-align: center;
+    margin-bottom: 56px;
+  }
+
+  .reviews-header .section-sub { margin: 0 auto; }
+
+  .zillow-link {
+    color: var(--gold);
+    font-weight: 600;
+    border-bottom: 1px solid currentColor;
+  }
+
+  .reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px;
+    margin-bottom: 52px;
+  }
+
+  .review-card {
+    background: var(--white);
+    border-radius: 20px;
+    padding: 40px 36px 32px;
+    box-shadow: var(--shadow);
+    position: relative;
+    border-top: 4px solid var(--gold);
+    transition: transform var(--transition), box-shadow var(--transition);
+  }
+
+  .review-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .review-quote {
+    font-family: 'Playfair Display', serif;
+    font-size: 5rem;
+    line-height: 0.8;
+    color: var(--gold);
+    opacity: 0.25;
+    position: absolute;
+    top: 20px; left: 28px;
+    pointer-events: none;
+  }
+
+  .review-stars {
+    font-size: 1.1rem;
+    color: var(--gold);
+    letter-spacing: 2px;
+    margin-bottom: 16px;
+  }
+
+  .review-text {
+    font-size: 0.96rem;
+    line-height: 1.8;
+    color: #4A4A5A;
+    margin-bottom: 28px;
+    font-style: italic;
+    position: relative;
+    z-index: 1;
+  }
+
+  .review-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 20px;
+    border-top: 1px solid var(--gray-light);
+  }
+
+  .reviewer-name {
+    display: block;
+    font-size: 0.95rem;
+    color: var(--navy);
+    font-weight: 600;
+  }
+
+  .reviewer-meta {
+    display: block;
+    font-size: 0.8rem;
+    color: var(--gray);
+    margin-top: 2px;
+  }
+
+  .zillow-logo {
+    opacity: 0.6;
+    filter: grayscale(1);
+    transition: opacity 0.2s, filter 0.2s;
+  }
+  .review-card:hover .zillow-logo { opacity: 1; filter: none; }
+
+  .reviews-cta { text-align: center; }
+
+  @media (max-width: 700px) {
+    .reviews-grid { grid-template-columns: 1fr; }
+    .review-card { padding: 32px 24px 28px; }
+  }
+</style>

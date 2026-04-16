@@ -1,0 +1,230 @@
+---
+// Add more listings here as needed. Keep to 3–5 to avoid clutter.
+
+const listings = [
+  {
+    status: "Active",
+    address: "531 Isleworth Close",
+    city: "Tarpon Springs",
+    state: "FL",
+    zip: "34688",
+    price: "Contact for Price",
+    beds: 5,
+    baths: 4,
+    sqft: 4570,
+    description: "Luxury Mediterranean-style home in the prestigious gated Wentworth Golf Course community. Featuring 5 spacious bedrooms, 4 bathrooms, and 4,570 sq ft of refined living space with elegant architectural details throughout.",
+    zillowLink: "https://us-east.prospects.com/prospects/outside/inscription.do?tok=Z5kbYbSXOUncnHYEUW+cBmj6w2ACj/MvVx4j0hd465E2SNuje1wQIdIXeOCQNFvbriJRWm+JBWfomTJUy/cvHVp6jght5507B462YwhIcIkFd+rDZkbDo3ECSnyHVjX1gj5U3Kt7BVQu0Rd44JA0SNq+bQgbI5wXbeedJ1LQvnAISGCDVjX1gjtb0fd6D1pviQ9U+5ExU9P3LFcRKtJZN/WCPl7vuHAHT3+wCnbskCMHjPwoWBQh0hd44ZolB48=",
+    image: "/listing-531-isleworth.jpg",
+  },
+  {
+    status: "Sold",
+    address: "5346 Neil Dr",
+    city: "Saint Petersburg",
+    state: "FL",
+    zip: "33714",
+    price: "Sold",
+    beds: 3,
+    baths: 2.5,
+    sqft: 1700,
+    description: "Townhouse in a gated community featuring an open floor plan, updated kitchen, and an attached 2-car garage. A well-appointed home offering modern comfort in a secure, convenient Saint Petersburg location.",
+    zillowLink: "https://www.zillow.com/profile/Antoni%20D%20Marinov",
+    image: "/listing-neil-dr.webp",
+  },
+  {
+    status: "Sold",
+    address: "7032 Pelican Island Dr",
+    city: "Tampa",
+    state: "FL",
+    zip: "33634",
+    price: "Sold",
+    beds: 3,
+    baths: 2,
+    sqft: 2342,
+    description: "Renovated single-family home in a gated golf course community featuring an open floor plan, modern kitchen, and a private pool. A stunning Tampa retreat with premium finishes throughout.",
+    zillowLink: "https://www.zillow.com/profile/Antoni%20D%20Marinov",
+    image: "/listing-pelican-island.webp",
+  },
+];
+---
+
+<section id="listings">
+  <div class="container">
+    <div class="listings-header reveal">
+      <p class="section-label">Featured Listings</p>
+      <h2 class="section-title">Properties I'm Proud to Represent</h2>
+      <span class="line-draw" style="margin:0 auto 20px;"></span>
+      <p class="section-sub">A curated selection of my active listings and recently sold properties across the Tampa Bay Area.</p>
+    </div>
+
+    <div class="listings-grid stagger">
+      {listings.map(listing => (
+        <div class="listing-card">
+          <div class="listing-img">
+            <img src={listing.image} alt={`${listing.address}, ${listing.city}, FL`} />
+            <span class={`listing-badge badge-${listing.status.toLowerCase()}`}>
+              {listing.status}
+            </span>
+          </div>
+
+          <div class="listing-body">
+            <p class="listing-price">{listing.price}</p>
+            <h3 class="listing-address">{listing.address}</h3>
+            <p class="listing-location">{listing.city}, {listing.state} {listing.zip}</p>
+
+            {(listing.beds > 0 || listing.baths > 0 || listing.sqft > 0) && (
+              <div class="listing-details">
+                {listing.beds > 0 && <span><strong>{listing.beds}</strong> bd</span>}
+                {listing.baths > 0 && <span><strong>{listing.baths}</strong> ba</span>}
+                {listing.sqft > 0 && <span><strong>{listing.sqft.toLocaleString()}</strong> sqft</span>}
+              </div>
+            )}
+
+            <p class="listing-desc">{listing.description}</p>
+
+            <a href={listing.zillowLink} target="_blank" rel="noopener noreferrer" class="listing-link">
+              View Listing →
+            </a>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <div class="listings-cta reveal">
+      <a
+        href="https://www.zillow.com/profile/Antoni%20D%20Marinov"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn btn-navy"
+      >
+        View All My Listings on Zillow
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  #listings {
+    background: var(--gray-light);
+  }
+
+  .listings-header {
+    text-align: center;
+    margin-bottom: 56px;
+  }
+
+  .listings-header .section-sub { margin: 0 auto; }
+
+  .listings-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+    margin-bottom: 52px;
+  }
+
+  .listing-card {
+    background: var(--white);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: transform var(--transition), box-shadow var(--transition);
+  }
+
+  .listing-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .listing-img {
+    position: relative;
+    aspect-ratio: 4/3;
+    overflow: hidden;
+  }
+
+  .listing-img img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+
+  .listing-card:hover .listing-img img { transform: scale(1.05); }
+
+  .listing-badge {
+    position: absolute;
+    top: 14px; left: 14px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 5px 12px;
+    border-radius: 50px;
+  }
+
+  .badge-active { background: #22c55e; color: white; }
+  .badge-sold   { background: var(--navy); color: white; }
+
+  .listing-body {
+    padding: 24px;
+  }
+
+  .listing-price {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 4px;
+  }
+
+  .listing-address {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 2px;
+  }
+
+  .listing-location {
+    font-size: 0.85rem;
+    color: var(--gray);
+    margin-bottom: 12px;
+  }
+
+  .listing-details {
+    display: flex;
+    gap: 16px;
+    font-size: 0.88rem;
+    color: var(--gray);
+    margin-bottom: 12px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--gray-light);
+  }
+
+  .listing-details strong { color: var(--text); }
+
+  .listing-desc {
+    font-size: 0.88rem;
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 18px;
+  }
+
+  .listing-link {
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--gold);
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s;
+  }
+
+  .listing-link:hover { border-bottom-color: var(--gold); }
+
+  .listings-cta {
+    text-align: center;
+  }
+
+  @media (max-width: 900px) {
+    .listings-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (max-width: 600px) {
+    .listings-grid { grid-template-columns: 1fr; }
+  }
+</style>

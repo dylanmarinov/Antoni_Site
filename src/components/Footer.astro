@@ -1,0 +1,185 @@
+---
+const currentYear = new Date().getFullYear();
+---
+
+<footer>
+  <div class="footer-main">
+    <div class="container footer-grid">
+
+      <div class="footer-brand">
+        <h3>Antoni D. Marinov</h3>
+        <p class="footer-tagline">REALTOR® | Licensed in Florida</p>
+        <p class="footer-desc">
+          Serving buyers, sellers, and investors across the greater Tampa Bay Area
+          with honesty, expertise, and dedication for over 21 years.
+        </p>
+        <a href="https://gocrr.com/" target="_blank" rel="noopener noreferrer" class="crr-link">
+          Charles Rutenberg Realty
+        </a>
+      </div>
+
+      <div class="footer-nav">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#why-work">Why Work With Me</a></li>
+          <li><a href="#search">Search Properties</a></li>
+          <li><a href="#listings">Listings</a></li>
+          <li><a href="#reviews">Reviews</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-connect">
+        <h4>Connect</h4>
+        <ul>
+          <li>
+            <a href="https://www.zillow.com/profile/Antoni%20D%20Marinov" target="_blank" rel="noopener noreferrer">
+              Zillow Profile
+            </a>
+          </li>
+          <li>
+            <a href="https://gocrr.com/" target="_blank" rel="noopener noreferrer">
+              Charles Rutenberg Realty
+            </a>
+          </li>
+          <!-- TODO: Add links to your LinkedIn, Facebook, Instagram, etc. -->
+        </ul>
+        <div class="footer-areas">
+          <h4 style="margin-top:28px">Areas Served</h4>
+          <p>Tampa · St. Petersburg · Clearwater · Brandon · Wesley Chapel · Sarasota · and beyond</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="container footer-bottom-inner">
+      <p>&copy; {currentYear} Antoni D. Marinov. All rights reserved.</p>
+      <p>
+        Licensed REALTOR® affiliated with
+        <a href="https://gocrr.com/" target="_blank" rel="noopener noreferrer">Charles Rutenberg Realty</a>.
+        Equal Housing Opportunity. &nbsp;&#9632;
+      </p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  footer {
+    background: var(--navy-dark);
+  }
+
+  .footer-main {
+    padding: 80px 24px 60px;
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1.5fr;
+    gap: 60px;
+  }
+
+  .footer-brand h3 {
+    font-size: 1.5rem;
+    color: var(--white);
+    margin-bottom: 4px;
+  }
+
+  .footer-tagline {
+    font-size: 0.78rem;
+    letter-spacing: 0.1em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+
+  .footer-desc {
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.7;
+    margin-bottom: 20px;
+    max-width: 320px;
+  }
+
+  .crr-link {
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--gold);
+    border-bottom: 1px solid rgba(201,168,76,0.4);
+    transition: border-color 0.2s;
+  }
+  .crr-link:hover { border-bottom-color: var(--gold); }
+
+  .footer-nav h4,
+  .footer-connect h4 {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 18px;
+    font-family: 'Inter', sans-serif;
+  }
+
+  .footer-nav ul,
+  .footer-connect ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .footer-nav a,
+  .footer-connect a {
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.6);
+    transition: color 0.2s;
+  }
+
+  .footer-nav a:hover,
+  .footer-connect a:hover { color: var(--white); }
+
+  .footer-areas p {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.7;
+  }
+
+  /* Bottom bar */
+  .footer-bottom {
+    background: rgba(0,0,0,0.25);
+    padding: 18px 24px;
+  }
+
+  .footer-bottom-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .footer-bottom p {
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.4);
+  }
+
+  .footer-bottom a {
+    color: rgba(255,255,255,0.55);
+    transition: color 0.2s;
+  }
+  .footer-bottom a:hover { color: var(--white); }
+
+  @media (max-width: 900px) {
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+    .footer-brand { grid-column: span 2; }
+  }
+
+  @media (max-width: 520px) {
+    .footer-grid { grid-template-columns: 1fr; }
+    .footer-brand { grid-column: span 1; }
+    .footer-bottom-inner { flex-direction: column; text-align: center; }
+  }
+</style>
