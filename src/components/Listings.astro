@@ -1,6 +1,6 @@
 ---
 // Add more listings here as needed. Keep to 3–5 to avoid clutter.
-const base = import.meta.env.BASE_URL;
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
 const listings = [
   {
@@ -15,7 +15,7 @@ const listings = [
     sqft: 4570,
     description: "Luxury Mediterranean-style home in the prestigious gated Wentworth Golf Course community. Featuring 5 spacious bedrooms, 4 bathrooms, and 4,570 sq ft of refined living space with elegant architectural details throughout.",
     zillowLink: "https://us-east.prospects.com/prospects/outside/inscription.do?tok=Z5kbYbSXOUncnHYEUW+cBmj6w2ACj/MvVx4j0hd465E2SNuje1wQIdIXeOCQNFvbriJRWm+JBWfomTJUy/cvHVp6jght5507B462YwhIcIkFd+rDZkbDo3ECSnyHVjX1gj5U3Kt7BVQu0Rd44JA0SNq+bQgbI5wXbeedJ1LQvnAISGCDVjX1gjtb0fd6D1pviQ9U+5ExU9P3LFcRKtJZN/WCPl7vuHAHT3+wCnbskCMHjPwoWBQh0hd44ZolB48=",
-    image: `${base}listing-531-isleworth.jpg`,
+    image: `${base}/listing-531-isleworth.jpg`,
   },
   {
     status: "Sold",
@@ -29,7 +29,7 @@ const listings = [
     sqft: 1700,
     description: "Townhouse in a gated community featuring an open floor plan, updated kitchen, and an attached 2-car garage. A well-appointed home offering modern comfort in a secure, convenient Saint Petersburg location.",
     zillowLink: "https://www.zillow.com/profile/Antoni%20D%20Marinov",
-    image: `${base}listing-neil-dr.webp`,
+    image: `${base}/listing-neil-dr.webp`,
   },
   {
     status: "Sold",
@@ -43,7 +43,7 @@ const listings = [
     sqft: 2342,
     description: "Renovated single-family home in a gated golf course community featuring an open floor plan, modern kitchen, and a private pool. A stunning Tampa retreat with premium finishes throughout.",
     zillowLink: "https://www.zillow.com/profile/Antoni%20D%20Marinov",
-    image: `${base}listing-pelican-island.webp`,
+    image: `${base}/listing-pelican-island.webp`,
   },
 ];
 ---
