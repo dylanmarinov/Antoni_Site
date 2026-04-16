@@ -1,25 +1,20 @@
 ---
 const navLinks = [
-  { label: "About",      href: "#about" },
-  { label: "Why Me",     href: "#why-work" },
-  { label: "Search",     href: "#search" },
-  { label: "Listings",   href: "#listings" },
-  { label: "Reviews",    href: "#reviews" },
-  { label: "Contact",    href: "#contact" },
+  { label: "About",    href: "#about" },
+  { label: "Why Me",   href: "#why-work" },
+  { label: "Listings", href: "#listings" },
+  { label: "Reviews",  href: "#reviews" },
+  { label: "Search",   href: "#search" },
+  { label: "Contact",  href: "#contact" },
 ];
 ---
-
 <nav id="main-nav">
   <div class="nav-inner">
     <a href="#home" class="nav-brand">
       <span class="brand-name">Antoni D. Marinov</span>
-      <span class="brand-tag">REALTOR® | Charles Rutenberg Realty</span>
+      <span class="brand-tag">REALTOR® · Charles Rutenberg Realty</span>
     </a>
-
-    <button class="nav-toggle" id="nav-toggle" aria-label="Open menu">
-      <span></span><span></span><span></span>
-    </button>
-
+    <button class="nav-toggle" id="nav-toggle" aria-label="Open menu"><span></span><span></span><span></span></button>
     <ul class="nav-links" id="nav-links">
       {navLinks.map(link => (
         <li><a href={link.href}>{link.label}</a></li>
@@ -31,107 +26,29 @@ const navLinks = [
 
 <style>
   #main-nav {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    z-index: 1000;
-    padding: 20px 24px;
-    transition: background 0.35s ease, padding 0.35s ease, box-shadow 0.35s ease;
-  }
-
-  #main-nav.scrolled {
-    background: rgba(18, 40, 73, 0.97);
+    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+    padding: 18px 32px;
+    background: rgba(255,255,255,0.92);
     backdrop-filter: blur(12px);
-    padding: 12px 24px;
-    box-shadow: 0 2px 20px rgba(0,0,0,0.25);
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.3s, box-shadow 0.3s;
   }
-
-  .nav-inner {
-    max-width: 1160px;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 24px;
-  }
-
-  .nav-brand {
-    display: flex;
-    flex-direction: column;
-    line-height: 1.2;
-  }
-
-  .brand-name {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.2rem;
-    font-weight: 700;
-    color: var(--white);
-  }
-
-  .brand-tag {
-    font-size: 0.68rem;
-    letter-spacing: 0.08em;
-    color: var(--gold);
-    font-weight: 500;
-  }
-
-  .nav-links {
-    display: flex;
-    list-style: none;
-    align-items: center;
-    gap: 8px;
-  }
-
-  .nav-links a {
-    color: rgba(255,255,255,0.85);
-    font-size: 0.88rem;
-    font-weight: 500;
-    padding: 6px 12px;
-    border-radius: 6px;
-    transition: color 0.2s, background 0.2s;
-  }
-
-  .nav-links a:hover { color: var(--white); background: rgba(255,255,255,0.1); }
-
-  .nav-cta {
-    padding: 10px 22px !important;
-    background: var(--gold) !important;
-    color: var(--navy-dark) !important;
-    font-weight: 600 !important;
-    border-radius: 50px !important;
-  }
-  .nav-cta:hover { background: var(--gold-light) !important; }
-
-  .nav-toggle {
-    display: none;
-    flex-direction: column;
-    gap: 5px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 4px;
-  }
-  .nav-toggle span {
-    display: block;
-    width: 24px; height: 2px;
-    background: var(--white);
-    border-radius: 2px;
-    transition: 0.3s;
-  }
-
+  #main-nav.scrolled { border-color: #E5E7EB; box-shadow: 0 1px 12px rgba(0,0,0,0.06); }
+  .nav-inner { max-width: 1160px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+  .nav-brand { display: flex; flex-direction: column; line-height: 1.2; }
+  .brand-name { font-size: 1.05rem; font-weight: 800; color: var(--navy); }
+  .brand-tag { font-size: 0.65rem; letter-spacing: 0.06em; color: var(--gray); }
+  .nav-links { display: flex; list-style: none; align-items: center; gap: 4px; }
+  .nav-links a { color: var(--gray); font-size: 0.85rem; font-weight: 500; padding: 6px 12px; border-radius: 6px; transition: color 0.2s, background 0.2s; }
+  .nav-links a:hover { color: var(--navy); background: var(--gray-light); }
+  .nav-cta { background: var(--navy) !important; color: var(--white) !important; padding: 9px 20px !important; border-radius: 6px !important; }
+  .nav-cta:hover { background: var(--navy-dark) !important; }
+  .nav-toggle { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; }
+  .nav-toggle span { display: block; width: 22px; height: 2px; background: var(--navy); border-radius: 2px; }
   @media (max-width: 768px) {
     .nav-toggle { display: flex; }
-
-    .nav-links {
-      display: none;
-      position: absolute;
-      top: 100%; left: 0; right: 0;
-      flex-direction: column;
-      background: var(--navy-dark);
-      padding: 20px 24px 28px;
-      gap: 4px;
-    }
+    .nav-links { display: none; position: absolute; top: 100%; left: 0; right: 0; flex-direction: column; background: var(--white); border-bottom: 1px solid #E5E7EB; padding: 16px 24px 24px; gap: 2px; }
     .nav-links.open { display: flex; }
-    .nav-links a { padding: 10px 16px !important; }
   }
 </style>
 
@@ -139,16 +56,7 @@ const navLinks = [
   const nav = document.getElementById('main-nav');
   const toggle = document.getElementById('nav-toggle');
   const links = document.getElementById('nav-links');
-
-  window.addEventListener('scroll', () => {
-    nav?.classList.toggle('scrolled', window.scrollY > 40);
-  });
-
-  toggle?.addEventListener('click', () => {
-    links?.classList.toggle('open');
-  });
-
-  links?.querySelectorAll('a').forEach(a => {
-    a.addEventListener('click', () => links.classList.remove('open'));
-  });
+  window.addEventListener('scroll', () => nav?.classList.toggle('scrolled', window.scrollY > 20));
+  toggle?.addEventListener('click', () => links?.classList.toggle('open'));
+  links?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => links.classList.remove('open')));
 </script>

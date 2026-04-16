@@ -1,59 +1,28 @@
 ---
 const features = [
-  {
-    icon: "🏠",
-    title: "First-Time Homebuyer Friendly",
-    description:
-      "Buying your first home can feel overwhelming. I walk you through every step — from pre-approval to closing day — so you always feel informed and in control.",
-  },
-  {
-    icon: "📈",
-    title: "Investor-Friendly",
-    description:
-      "I understand the numbers that matter to investors. From rental income properties to fix-and-flip opportunities, I help you find the right deals and negotiate favorable terms.",
-  },
-  {
-    icon: "🗺️",
-    title: "Tampa Bay Market Expert",
-    description:
-      "With 21+ years of boots-on-the-ground experience, I know the neighborhoods, trends, and hidden opportunities across the greater Tampa Bay Area inside and out.",
-  },
-  {
-    icon: "🤝",
-    title: "No-Pressure Approach",
-    description:
-      "I work at your pace, on your terms. If you need more time or want to step back from the market, I will always respect your decision — zero pressure, zero judgment.",
-  },
-  {
-    icon: "🔍",
-    title: "Detail-Oriented Inspections",
-    description:
-      "I thoroughly inspect every home we tour and am always upfront about any issues I spot — because your long-term satisfaction is worth more than a quick commission.",
-  },
-  {
-    icon: "🏆",
-    title: "Proven Track Record",
-    description:
-      "Affiliated with Charles Rutenberg Realty — one of Florida's top independent brokerages — I bring decades of proven results and lasting client relationships.",
-  },
+  { num: "01", title: "First-Time Homebuyer Friendly", description: "I walk you through every step from pre-approval to closing day — you'll always feel informed and in control." },
+  { num: "02", title: "Investor-Friendly", description: "From rental income properties to fix-and-flip opportunities, I help you find deals that maximize your return." },
+  { num: "03", title: "Tampa Bay Market Expert", description: "21+ years of boots-on-the-ground experience across every neighborhood in the greater Tampa Bay Area." },
+  { num: "04", title: "No-Pressure Approach", description: "I work at your pace, on your terms. Zero pressure, zero judgment — always." },
+  { num: "05", title: "Detail-Oriented", description: "I thoroughly inspect every home and am always upfront about issues — your long-term happiness matters." },
+  { num: "06", title: "Proven Track Record", description: "Affiliated with Charles Rutenberg Realty, Florida's top independent brokerage, with decades of results." },
 ];
 ---
-
 <section id="why-work">
   <div class="container">
     <div class="why-header reveal">
       <p class="section-label">Why Work With Me</p>
-      <h2 class="section-title">Dedicated. Experienced. Always in Your Corner.</h2>
-      <span class="line-draw" style="margin:0 auto 24px;"></span>
-      <p class="section-sub">Every client deserves personalized service and honest guidance. Here's what sets me apart.</p>
+      <h2 class="section-title">Six Reasons Clients Choose Antoni</h2>
+      <span class="line-draw"></span>
     </div>
-
     <div class="features-grid stagger">
       {features.map(f => (
-        <div class="feature-card">
-          <div class="feature-icon">{f.icon}</div>
-          <h3>{f.title}</h3>
-          <p>{f.description}</p>
+        <div class="feature-row">
+          <span class="feature-num">{f.num}</span>
+          <div class="feature-body">
+            <h3>{f.title}</h3>
+            <p>{f.description}</p>
+          </div>
         </div>
       ))}
     </div>
@@ -61,77 +30,19 @@ const features = [
 </section>
 
 <style>
-  #why-work {
-    background: var(--navy);
-    position: relative;
-    overflow: hidden;
+  #why-work { background: var(--off-white); }
+  .why-header { margin-bottom: 56px; }
+  .features-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border-top: 1px solid #E5E7EB; border-left: 1px solid #E5E7EB; }
+  .feature-row {
+    display: flex; gap: 24px; padding: 36px 32px;
+    border-right: 1px solid #E5E7EB; border-bottom: 1px solid #E5E7EB;
+    background: var(--white);
+    transition: background var(--transition);
   }
-
-  #why-work::before {
-    content: '';
-    position: absolute;
-    top: -200px; right: -200px;
-    width: 600px; height: 600px;
-    background: radial-gradient(circle, rgba(201,168,76,0.08) 0%, transparent 70%);
-    pointer-events: none;
-  }
-
-  .why-header {
-    text-align: center;
-    margin-bottom: 60px;
-  }
-
-  .why-header .section-title { color: var(--white); }
-
-  .why-header .section-sub {
-    color: rgba(255,255,255,0.65);
-    margin: 0 auto;
-  }
-
-  .features-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
-  }
-
-  .feature-card {
-    background: rgba(255,255,255,0.05);
-    border: 1px solid rgba(255,255,255,0.1);
-    border-radius: var(--radius);
-    padding: 36px 28px;
-    transition: background var(--transition), transform var(--transition), border-color var(--transition);
-  }
-
-  .feature-card:hover {
-    background: rgba(201,168,76,0.1);
-    border-color: rgba(201,168,76,0.35);
-    transform: translateY(-6px);
-  }
-
-  .feature-icon {
-    font-size: 2rem;
-    margin-bottom: 16px;
-    line-height: 1;
-  }
-
-  .feature-card h3 {
-    font-size: 1.1rem;
-    font-weight: 700;
-    color: var(--white);
-    margin-bottom: 10px;
-  }
-
-  .feature-card p {
-    font-size: 0.92rem;
-    color: rgba(255,255,255,0.65);
-    line-height: 1.7;
-  }
-
-  @media (max-width: 900px) {
-    .features-grid { grid-template-columns: repeat(2, 1fr); }
-  }
-
-  @media (max-width: 600px) {
-    .features-grid { grid-template-columns: 1fr; }
-  }
+  .feature-row:hover { background: #EFF6FF; }
+  .feature-num { font-size: 2rem; font-weight: 800; color: #DBEAFE; flex-shrink: 0; line-height: 1; width: 48px; }
+  .feature-row:hover .feature-num { color: var(--gold); }
+  .feature-body h3 { font-size: 1rem; font-weight: 700; color: var(--navy); margin-bottom: 6px; }
+  .feature-body p { font-size: 0.88rem; color: var(--gray); line-height: 1.65; }
+  @media (max-width: 700px) { .features-grid { grid-template-columns: 1fr; } }
 </style>
