@@ -1,247 +1,78 @@
 ---
-interface Props {
-  title?: string;
-  description?: string;
-}
-
-const {
-  title = "Antoni D. Marinov | REALTOR® | Charles Rutenberg Realty",
-  description = "Antoni D. Marinov is a trusted Florida REALTOR® with 21+ years of experience at Charles Rutenberg Realty. Specializing in investment properties and first-time homebuyers in the greater Tampa Bay Area.",
-} = Astro.props;
+interface Props { title?: string; description?: string; }
+const { title = "Antoni D. Marinov | REALTOR® | Charles Rutenberg Realty", description = "Antoni D. Marinov is a trusted Florida REALTOR® with 21+ years of experience at Charles Rutenberg Realty." } = Astro.props;
 ---
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content={description} />
-    <title>{title}</title>
+    <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} /><title>{title}</title>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
   </head>
-  <body>
-    <slot />
-  </body>
+  <body><slot /></body>
 </html>
 
 <style is:global>
   :root {
-    --navy:      #1B3A6B;
-    --navy-dark: #122849;
-    --gold:      #C9A84C;
-    --gold-light:#e2c06e;
-    --white:     #FFFFFF;
-    --off-white: #F7F5F0;
-    --gray-light:#F0EDE8;
-    --gray:      #8A8A8A;
-    --text:      #1A1A2E;
-    --shadow:    0 4px 24px rgba(27,58,107,0.12);
-    --shadow-lg: 0 12px 48px rgba(27,58,107,0.18);
-    --radius:    12px;
-    --transition:0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    --navy:      #2C1810;
+    --navy-dark: #1A0F0A;
+    --gold:      #C4622D;
+    --gold-light:#D4845C;
+    --white:     #FFFDF9;
+    --off-white: #FAF5EE;
+    --gray-light:#F2EBE0;
+    --gray:      #8B7355;
+    --text:      #2C1810;
+    --shadow:    0 4px 24px rgba(44,24,16,0.1);
+    --shadow-lg: 0 16px 56px rgba(44,24,16,0.16);
+    --radius:    4px;
+    --transition:0.35s cubic-bezier(0.4,0,0.2,1);
   }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Lato',sans-serif;color:var(--text);background:var(--white);line-height:1.75;overflow-x:hidden;}
+  h1,h2,h3,h4{font-family:'Cormorant Garamond',serif;line-height:1.15;font-weight:600;}
+  a{text-decoration:none;color:inherit;}
+  img{max-width:100%;display:block;}
 
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; }
+  .reveal{opacity:0;transform:translateY(50px);transition:opacity 0.9s cubic-bezier(0.22,1,0.36,1),transform 0.9s cubic-bezier(0.22,1,0.36,1);}
+  .reveal.from-left{transform:translateX(-70px);}
+  .reveal.from-right{transform:translateX(70px);}
+  .reveal.visible{opacity:1;transform:none;}
+  .stagger>*{opacity:0;transform:translateY(30px);transition:opacity 0.7s ease,transform 0.7s ease;}
+  .stagger.visible>*:nth-child(1){opacity:1;transform:none;transition-delay:0.08s}
+  .stagger.visible>*:nth-child(2){opacity:1;transform:none;transition-delay:0.18s}
+  .stagger.visible>*:nth-child(3){opacity:1;transform:none;transition-delay:0.28s}
+  .stagger.visible>*:nth-child(4){opacity:1;transform:none;transition-delay:0.38s}
+  .stagger.visible>*:nth-child(5){opacity:1;transform:none;transition-delay:0.48s}
+  .stagger.visible>*:nth-child(6){opacity:1;transform:none;transition-delay:0.58s}
+  .line-draw{display:block;width:0;height:1px;background:var(--gold);transition:width 1.2s ease 0.4s;}
+  .line-draw.visible{width:80px;}
 
-  body {
-    font-family: 'Inter', sans-serif;
-    color: var(--text);
-    background: var(--white);
-    line-height: 1.7;
-    overflow-x: hidden;
-  }
+  section{padding:110px 24px;}
+  .container{max-width:1160px;margin:0 auto;}
+  .section-label{display:inline-block;font-family:'Lato',sans-serif;font-size:0.7rem;font-weight:700;letter-spacing:0.25em;text-transform:uppercase;color:var(--gold);margin-bottom:14px;}
+  .section-title{font-size:clamp(2.2rem,4vw,3.4rem);color:var(--navy);margin-bottom:18px;}
+  .section-sub{font-size:1rem;color:var(--gray);max-width:580px;margin-bottom:52px;line-height:1.8;}
 
-  h1, h2, h3, h4 { font-family: 'Playfair Display', serif; line-height: 1.2; }
-  a { text-decoration: none; color: inherit; }
-  img { max-width: 100%; display: block; }
-
-  /* ════════════════════════════════════════
-     SCROLL-REVEAL SYSTEM
-     ════════════════════════════════════════ */
-
-  /* --- Base: fade + rise --- */
-  .reveal {
-    opacity: 0;
-    transform: translateY(48px);
-    transition: opacity 0.8s cubic-bezier(0.22,1,0.36,1),
-                transform 0.8s cubic-bezier(0.22,1,0.36,1);
-    will-change: opacity, transform;
-  }
-
-  /* --- Directional variants --- */
-  .reveal.from-left  { transform: translateX(-72px) translateY(0); }
-  .reveal.from-right { transform: translateX(72px)  translateY(0); }
-  .reveal.scale-in   { transform: scale(0.88) translateY(0); opacity: 0; }
-
-  /* --- Image clip-path curtain reveal --- */
-  .reveal.img-reveal {
-    transform: none;
-    clip-path: inset(0 100% 0 0);
-    transition: opacity 0.1s, clip-path 0.95s cubic-bezier(0.77,0,0.175,1);
-  }
-
-  /* --- Visible state (all variants) --- */
-  .reveal.visible {
-    opacity: 1;
-    transform: none;
-    clip-path: inset(0 0% 0 0);
-  }
-
-  /* --- Stagger container --- */
-  .stagger > * {
-    opacity: 0;
-    transform: translateY(36px) scale(0.97);
-    transition: opacity 0.65s cubic-bezier(0.22,1,0.36,1),
-                transform 0.65s cubic-bezier(0.22,1,0.36,1);
-    will-change: opacity, transform;
-  }
-
-  .stagger.visible > *:nth-child(1)  { opacity:1; transform:none; transition-delay:0.05s; }
-  .stagger.visible > *:nth-child(2)  { opacity:1; transform:none; transition-delay:0.15s; }
-  .stagger.visible > *:nth-child(3)  { opacity:1; transform:none; transition-delay:0.25s; }
-  .stagger.visible > *:nth-child(4)  { opacity:1; transform:none; transition-delay:0.35s; }
-  .stagger.visible > *:nth-child(5)  { opacity:1; transform:none; transition-delay:0.45s; }
-  .stagger.visible > *:nth-child(6)  { opacity:1; transform:none; transition-delay:0.55s; }
-  .stagger.visible > *:nth-child(7)  { opacity:1; transform:none; transition-delay:0.65s; }
-  .stagger.visible > *:nth-child(8)  { opacity:1; transform:none; transition-delay:0.75s; }
-  .stagger.visible > *:nth-child(9)  { opacity:1; transform:none; transition-delay:0.85s; }
-
-  /* --- Line-draw divider --- */
-  .line-draw {
-    display: block;
-    width: 0;
-    height: 3px;
-    background: var(--gold);
-    border-radius: 2px;
-    transition: width 1s cubic-bezier(0.22,1,0.36,1) 0.3s;
-  }
-  .line-draw.visible { width: 64px; }
-
-  /* ════════════════════════════════════════
-     SHARED SECTION STYLES
-     ════════════════════════════════════════ */
-  section { padding: 100px 24px; }
-
-  .container { max-width: 1160px; margin: 0 auto; }
-
-  .section-label {
-    display: inline-block;
-    font-size: 0.75rem;
-    font-weight: 600;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 12px;
-  }
-
-  .section-title {
-    font-size: clamp(2rem, 4vw, 3rem);
-    color: var(--navy);
-    margin-bottom: 20px;
-  }
-
-  .section-sub {
-    font-size: 1.05rem;
-    color: var(--gray);
-    max-width: 600px;
-    margin-bottom: 56px;
-    line-height: 1.75;
-  }
-
-  /* ════════════════════════════════════════
-     BUTTONS
-     ════════════════════════════════════════ */
-  .btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 14px 32px;
-    border-radius: 50px;
-    font-weight: 600;
-    font-size: 0.95rem;
-    letter-spacing: 0.03em;
-    cursor: pointer;
-    border: none;
-    transition: transform var(--transition), box-shadow var(--transition),
-                background var(--transition), color var(--transition);
-  }
-  .btn:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); }
-  .btn:active { transform: translateY(0); }
-
-  .btn-primary { background: var(--gold); color: var(--navy-dark); }
-  .btn-primary:hover { background: var(--gold-light); }
-
-  .btn-outline {
-    background: transparent;
-    color: var(--white);
-    border: 2px solid rgba(255,255,255,0.65);
-  }
-  .btn-outline:hover { background: rgba(255,255,255,0.12); border-color: var(--white); }
-
-  .btn-navy { background: var(--navy); color: var(--white); }
-  .btn-navy:hover { background: var(--navy-dark); }
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:14px 32px;border-radius:2px;font-family:'Lato',sans-serif;font-weight:700;font-size:0.82rem;letter-spacing:0.12em;text-transform:uppercase;cursor:pointer;border:none;transition:all var(--transition);}
+  .btn:hover{transform:translateY(-2px);box-shadow:var(--shadow-lg);}
+  .btn-primary{background:var(--gold);color:var(--white);}
+  .btn-primary:hover{background:var(--gold-light);}
+  .btn-outline{background:transparent;color:var(--white);border:1px solid rgba(255,255,255,0.5);}
+  .btn-outline:hover{background:rgba(255,255,255,0.1);border-color:var(--white);}
+  .btn-navy{background:var(--navy);color:var(--white);}
+  .btn-navy:hover{background:var(--navy-dark);}
+  .btn-ghost{background:transparent;color:var(--navy);border:1px solid var(--navy);}
+  .btn-ghost:hover{background:var(--navy);color:var(--white);}
 </style>
 
 <script>
-  /* ── Scroll-reveal observer ── */
-  const revealObserver = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-
-          // Trigger count-up on stat numbers
-          entry.target.querySelectorAll('[data-count]').forEach((el) => {
-            animateCount(el as HTMLElement);
-          });
-
-          revealObserver.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.1, rootMargin: '0px 0px -60px 0px' }
-  );
-
-  document.querySelectorAll('.reveal, .stagger, .line-draw').forEach((el) => {
-    revealObserver.observe(el);
-  });
-
-  /* ── Count-up animation ── */
-  function animateCount(el: HTMLElement) {
-    const target = parseFloat(el.dataset.count || '0');
-    const suffix = el.dataset.suffix || '';
-    const duration = 1600;
-    const start = performance.now();
-
-    function step(now: number) {
-      const progress = Math.min((now - start) / duration, 1);
-      // ease out expo
-      const eased = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
-      const current = Math.round(eased * target * 10) / 10;
-      el.textContent = (Number.isInteger(target) ? Math.round(current) : current) + suffix;
-      if (progress < 1) requestAnimationFrame(step);
-    }
-
-    requestAnimationFrame(step);
-  }
-
-  /* ── Parallax on scroll for elements with .parallax class ── */
-  const parallaxEls = document.querySelectorAll('.parallax');
-
-  if (parallaxEls.length) {
-    window.addEventListener('scroll', () => {
-      const scrollY = window.scrollY;
-      parallaxEls.forEach((el) => {
-        const speed = parseFloat((el as HTMLElement).dataset.speed || '0.2');
-        const rect  = el.parentElement!.getBoundingClientRect();
-        const offset = (rect.top + scrollY) - scrollY;
-        (el as HTMLElement).style.transform =
-          `translateY(${(scrollY - offset) * speed}px)`;
-      });
-    }, { passive: true });
-  }
+  const obs = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}});
+  },{threshold:0.1,rootMargin:'0px 0px -50px 0px'});
+  document.querySelectorAll('.reveal,.stagger,.line-draw').forEach(el=>obs.observe(el));
 </script>

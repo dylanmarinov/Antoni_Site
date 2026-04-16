@@ -1,5 +1,4 @@
 ---
-// Add more listings here as needed. Keep to 3–5 to avoid clutter.
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
 const listings = [
@@ -124,14 +123,13 @@ const listings = [
 
   .listing-card {
     background: var(--white);
-    border-radius: 16px;
     overflow: hidden;
     box-shadow: var(--shadow);
     transition: transform var(--transition), box-shadow var(--transition);
   }
 
   .listing-card:hover {
-    transform: translateY(-8px);
+    transform: translateY(-6px);
     box-shadow: var(--shadow-lg);
   }
 
@@ -144,72 +142,80 @@ const listings = [
   .listing-img img {
     width: 100%; height: 100%;
     object-fit: cover;
-    transition: transform 0.5s ease;
+    transition: transform 0.6s ease;
   }
 
-  .listing-card:hover .listing-img img { transform: scale(1.05); }
+  .listing-card:hover .listing-img img { transform: scale(1.06); }
 
   .listing-badge {
     position: absolute;
     top: 14px; left: 14px;
-    font-size: 0.7rem;
+    font-family: 'Lato', sans-serif;
+    font-size: 0.65rem;
     font-weight: 700;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.14em;
     text-transform: uppercase;
-    padding: 5px 12px;
-    border-radius: 50px;
+    padding: 5px 14px;
   }
 
-  .badge-active { background: #22c55e; color: white; }
-  .badge-sold   { background: var(--navy); color: white; }
+  .badge-active { background: var(--gold); color: var(--white); }
+  .badge-sold   { background: var(--navy); color: var(--white); }
 
   .listing-body {
-    padding: 24px;
+    padding: 28px;
   }
 
   .listing-price {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.5rem;
-    font-weight: 700;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.6rem;
+    font-weight: 600;
     color: var(--navy);
     margin-bottom: 4px;
   }
 
   .listing-address {
-    font-size: 1rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
     font-weight: 600;
     color: var(--text);
     margin-bottom: 2px;
   }
 
   .listing-location {
-    font-size: 0.85rem;
+    font-family: 'Lato', sans-serif;
+    font-size: 0.82rem;
     color: var(--gray);
-    margin-bottom: 12px;
+    margin-bottom: 14px;
+    letter-spacing: 0.04em;
   }
 
   .listing-details {
     display: flex;
     gap: 16px;
-    font-size: 0.88rem;
+    font-family: 'Lato', sans-serif;
+    font-size: 0.85rem;
     color: var(--gray);
-    margin-bottom: 12px;
-    padding-bottom: 12px;
+    margin-bottom: 14px;
+    padding-bottom: 14px;
     border-bottom: 1px solid var(--gray-light);
   }
 
   .listing-details strong { color: var(--text); }
 
   .listing-desc {
+    font-family: 'Lato', sans-serif;
     font-size: 0.88rem;
-    color: #666;
-    line-height: 1.6;
-    margin-bottom: 18px;
+    color: var(--gray);
+    line-height: 1.7;
+    margin-bottom: 20px;
   }
 
   .listing-link {
-    font-size: 0.88rem;
-    font-weight: 600;
+    font-family: 'Lato', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
     color: var(--gold);
     border-bottom: 1px solid transparent;
     transition: border-color 0.2s;
