@@ -38,10 +38,10 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
             the greater Tampa Bay real estate market with confidence. Affiliated with
             <a href="https://gocrr.com/" target="_blank" rel="noopener noreferrer" class="text-link">Charles Rutenberg Realty</a>
             — one of Florida's most respected independent brokerages — he has built a career on
-            honest advice, meticulous attention to detail, and an unwavering commitment to his
+            honest advice, meticulous attention to detail<span class="bio-extra">, and an unwavering commitment to his
             clients' best interests. He specializes in working with first-time homebuyers and
             real estate investors alike, bringing deep neighborhood knowledge and sharp
-            negotiating skills to every transaction.
+            negotiating skills to every transaction</span>.
           </p>
           <ul class="agent-creds stagger">
             <li><span class="cred-icon">✦</span> 25+ Years at Charles Rutenberg Realty</li>
@@ -75,11 +75,11 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
             As a licensed Florida REALTOR® with Charles Rutenberg Realty, Dylan brings fresh
             energy and a client-first mindset to every transaction. Partnering alongside Antoni,
             he combines modern market insight with the deep Tampa Bay expertise the Marinov Team
-            is known for. Dylan is passionate about helping first-time homebuyers navigate the
+            is known for<span class="bio-extra">. Dylan is passionate about helping first-time homebuyers navigate the
             process with confidence, and works closely with investors to identify the right
             opportunities across the Tampa Bay market. Whether you're buying, selling, or
             investing, Dylan is here to guide you every step of the way — with transparency,
-            dedication, and zero pressure.
+            dedication, and zero pressure</span>.
           </p>
           <ul class="agent-creds stagger">
             <li><span class="cred-icon">✦</span> Licensed Florida REALTOR®</li>
@@ -262,12 +262,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
   @media (max-width: 600px) {
     .about-header { margin-bottom: 36px; }
-    .agent-info p {
-      display: -webkit-box;
-      -webkit-line-clamp: 3;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
-    }
+    .bio-extra { display: none; }
     .agent-creds li:nth-child(n+4) { display: none; }
   }
 </style>

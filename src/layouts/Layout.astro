@@ -45,7 +45,7 @@ const {
   }
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; }
+  html { scroll-behavior: smooth; overflow-x: hidden; max-width: 100%; }
 
   body {
     font-family: 'Inter', sans-serif;
@@ -53,6 +53,7 @@ const {
     background: var(--white);
     line-height: 1.7;
     overflow-x: hidden;
+    max-width: 100%;
   }
 
   h1, h2, h3, h4 { font-family: 'Playfair Display', serif; line-height: 1.2; }
@@ -124,7 +125,7 @@ const {
   /* ════════════════════════════════════════
      SHARED SECTION STYLES
      ════════════════════════════════════════ */
-  section { padding: 100px 24px; }
+  section { padding: 100px 24px; overflow-x: clip; }
 
   .container { max-width: 1160px; margin: 0 auto; }
 
