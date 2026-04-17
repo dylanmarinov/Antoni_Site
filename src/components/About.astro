@@ -3,79 +3,95 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
 <section id="about">
-  <div class="container about-grid">
+  <div class="container">
 
-    <div class="about-image-wrap reveal from-left">
-      <div class="about-img-frame">
-        <img
-          src={`${base}/headshot.png`}
-          alt="Antoni D. Marinov, REALTOR®"
-        />
-      </div>
-      <div class="about-badge">
-        <span class="badge-num">21+</span>
-        <span class="badge-text">Years in<br/>Tampa Bay</span>
-      </div>
-    </div>
-
-    <div class="about-text reveal from-right">
-      <p class="section-label reveal">About Antoni</p>
-      <h2 class="section-title">Your Florida Real Estate Expert</h2>
+    <div class="about-header reveal">
+      <p class="section-label">Meet the Team</p>
+      <h2 class="section-title">The Marinov Team</h2>
       <span class="line-draw"></span>
-
-      <p>
-        For over two decades, I have been helping buyers, sellers, and investors navigate the
-        greater Tampa Bay real estate market with confidence. As a REALTOR® with
-        <a href="https://gocrr.com/" target="_blank" rel="noopener noreferrer" class="text-link">Charles Rutenberg Realty</a>
-        — one of Florida's most respected independent brokerages — I have built a career on
-        honest advice, meticulous attention to detail, and an unwavering commitment to my clients'
-        best interests.
+      <p class="section-sub">
+        Two generations of real estate expertise serving the greater Tampa Bay Area.
+        We combine decades of market experience with fresh energy and a shared commitment
+        to putting our clients first — every time.
       </p>
-
-      <p>
-        I specialize in working with <strong>first-time homebuyers</strong> and
-        <strong>real estate investors</strong> alike. Whether you're stepping onto the property
-        ladder for the first time or growing a portfolio across the Tampa Bay Area, I bring the
-        market knowledge and hands-on experience to help you make smart decisions at every step.
-      </p>
-
-      <p>
-        I take the time to thoroughly inspect every home we tour and am always upfront about
-        anything that could be a concern — because your long-term satisfaction matters more to
-        me than a quick sale. No pressure, ever.
-      </p>
-
-      <ul class="about-creds stagger">
-        <li>
-          <span class="cred-icon">✦</span>
-          21+ Years at Charles Rutenberg Realty
-        </li>
-        <li>
-          <span class="cred-icon">✦</span>
-          Licensed Florida REALTOR®
-        </li>
-        <li>
-          <span class="cred-icon">✦</span>
-          Investment Property Specialist
-        </li>
-        <li>
-          <span class="cred-icon">✦</span>
-          First-Time Homebuyer Specialist
-        </li>
-        <li>
-          <span class="cred-icon">✦</span>
-          Greater Tampa Bay Area Market Expert
-        </li>
-      </ul>
-
-      <div class="about-actions">
-        <a href="#contact" class="btn btn-primary">Work With Me</a>
-        <a href="https://gocrr.com/" target="_blank" rel="noopener noreferrer" class="btn btn-navy">
-          Charles Rutenberg Realty
-        </a>
-      </div>
     </div>
 
+    <div class="agents-grid">
+
+      <!-- Antoni -->
+      <div class="agent-card reveal from-left">
+        <div class="agent-img-wrap">
+          <div class="agent-img-frame">
+            <img src={`${base}/headshot.png`} alt="Antoni D. Marinov, REALTOR®" />
+          </div>
+          <div class="agent-badge">
+            <span class="badge-num">21+</span>
+            <span class="badge-text">Years in<br/>Tampa Bay</span>
+          </div>
+        </div>
+        <div class="agent-info">
+          <h3 class="agent-name">Antoni D. Marinov</h3>
+          <p class="agent-title">REALTOR® | Charles Rutenberg Realty</p>
+          <span class="line-draw agent-line"></span>
+          <p>
+            For over two decades, Antoni has been helping buyers, sellers, and investors navigate
+            the greater Tampa Bay real estate market with confidence. Affiliated with
+            <a href="https://gocrr.com/" target="_blank" rel="noopener noreferrer" class="text-link">Charles Rutenberg Realty</a>
+            — one of Florida's most respected independent brokerages — he has built a career on
+            honest advice, meticulous attention to detail, and an unwavering commitment to his
+            clients' best interests. He specializes in working with first-time homebuyers and
+            real estate investors alike.
+          </p>
+          <ul class="agent-creds stagger">
+            <li><span class="cred-icon">✦</span> 21+ Years at Charles Rutenberg Realty</li>
+            <li><span class="cred-icon">✦</span> Licensed Florida REALTOR®</li>
+            <li><span class="cred-icon">✦</span> Investment Property Specialist</li>
+            <li><span class="cred-icon">✦</span> First-Time Homebuyer Specialist</li>
+          </ul>
+          <div class="agent-actions">
+            <a href="tel:7274584192" class="btn btn-primary">📞 727-458-4192</a>
+            <a href="https://www.zillow.com/profile/Antoni%20D%20Marinov" target="_blank" rel="noopener noreferrer" class="btn btn-navy">Zillow Profile</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dylan -->
+      <div class="agent-card reveal from-right">
+        <div class="agent-img-wrap">
+          <div class="agent-img-frame">
+            <img src={`${base}/dylan-headshot.png`} alt="Dylan Marinov, REALTOR®" />
+          </div>
+          <div class="agent-badge agent-badge-new">
+            <span class="badge-num">New</span>
+            <span class="badge-text">Generation<br/>REALTOR®</span>
+          </div>
+        </div>
+        <div class="agent-info">
+          <h3 class="agent-name">Dylan Marinov</h3>
+          <p class="agent-title">REALTOR® | Charles Rutenberg Realty</p>
+          <span class="line-draw agent-line"></span>
+          <p>
+            As a licensed Florida REALTOR® with Charles Rutenberg Realty, Dylan brings fresh
+            energy and a client-first mindset to every transaction. Partnering alongside Antoni,
+            he combines modern market insight with the deep Tampa Bay expertise the Marinov Team
+            is known for. Whether you're buying your first home, searching for an investment
+            property, or navigating a complex sale, Dylan is here to guide you every step of
+            the way — with transparency, dedication, and zero pressure.
+          </p>
+          <ul class="agent-creds stagger">
+            <li><span class="cred-icon">✦</span> Licensed Florida REALTOR®</li>
+            <li><span class="cred-icon">✦</span> Charles Rutenberg Realty</li>
+            <li><span class="cred-icon">✦</span> First-Time Homebuyer Specialist</li>
+            <li><span class="cred-icon">✦</span> Greater Tampa Bay Area Expert</li>
+          </ul>
+          <div class="agent-actions">
+            <a href="tel:7277768787" class="btn btn-primary">📞 727-776-8787</a>
+            <a href="https://www.zillow.com/profile/dylanmarinovrealtor" target="_blank" rel="noopener noreferrer" class="btn btn-navy">Zillow Profile</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
   </div>
 </section>
 
@@ -84,76 +100,121 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
     background: var(--off-white);
   }
 
-  .about-grid {
+  .about-header {
+    text-align: center;
+    margin-bottom: 64px;
+  }
+
+  .about-header .line-draw {
+    margin: 0 auto 20px;
+  }
+
+  .about-header .section-sub {
+    margin: 0 auto;
+  }
+
+  .agents-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 80px;
-    align-items: center;
+    gap: 48px;
   }
 
-  /* Image side */
-  .about-image-wrap {
-    position: relative;
-    transition-delay: 0s;
-  }
-
-  .about-img-frame {
+  .agent-card {
+    background: var(--white);
     border-radius: 20px;
     overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: box-shadow var(--transition);
+  }
+
+  .agent-card:hover {
     box-shadow: var(--shadow-lg);
   }
 
-  .about-img-frame img {
+  .agent-img-wrap {
+    position: relative;
+  }
+
+  .agent-img-frame {
+    overflow: hidden;
+    aspect-ratio: 3/2;
+  }
+
+  .agent-img-frame img {
     width: 100%;
-    height: auto;
-    display: block;
+    height: 100%;
     object-fit: cover;
     object-position: top center;
     transition: transform 0.6s ease;
   }
 
-  .about-img-frame:hover img { transform: scale(1.03); }
+  .agent-card:hover .agent-img-frame img {
+    transform: scale(1.03);
+  }
 
-  .about-badge {
+  .agent-badge {
     position: absolute;
-    bottom: 24px;
-    right: 32px;
+    bottom: -20px;
+    right: 28px;
     background: var(--gold);
     color: var(--navy-dark);
-    border-radius: 16px;
-    padding: 20px 24px;
+    border-radius: 12px;
+    padding: 14px 18px;
     text-align: center;
     box-shadow: var(--shadow);
+    z-index: 1;
+  }
+
+  .agent-badge-new {
+    background: var(--navy);
+    color: var(--white);
   }
 
   .badge-num {
     display: block;
     font-family: 'Playfair Display', serif;
-    font-size: 2.2rem;
+    font-size: 1.6rem;
     font-weight: 700;
     line-height: 1;
   }
 
   .badge-text {
-    font-size: 0.75rem;
+    font-size: 0.65rem;
     font-weight: 600;
     letter-spacing: 0.05em;
     text-transform: uppercase;
     line-height: 1.4;
   }
 
-  /* Text side */
-  .about-text {
-    transition-delay: 0.15s;
+  .agent-info {
+    padding: 40px 28px 28px;
   }
 
-  .about-text p {
-    color: #4A4A5A;
+  .agent-name {
+    font-size: 1.6rem;
+    color: var(--navy);
+    margin-bottom: 4px;
+  }
+
+  .agent-title {
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 16px;
+  }
+
+  .agent-line {
     margin-bottom: 18px;
-    font-size: 1rem;
   }
 
-  .about-text strong { color: var(--navy); }
+  .agent-info p {
+    color: #4A4A5A;
+    font-size: 0.95rem;
+    line-height: 1.75;
+    margin-bottom: 4px;
+  }
 
   .text-link {
     color: var(--gold);
@@ -163,37 +224,36 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
   }
   .text-link:hover { opacity: 0.75; }
 
-  .about-creds {
+  .agent-creds {
     list-style: none;
-    margin: 28px 0 36px;
+    margin: 20px 0 28px;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 8px;
   }
 
-  .about-creds li {
+  .agent-creds li {
     display: flex;
     align-items: center;
     gap: 10px;
-    font-size: 0.95rem;
+    font-size: 0.88rem;
     font-weight: 500;
     color: var(--text);
   }
 
   .cred-icon {
     color: var(--gold);
-    font-size: 0.7rem;
+    font-size: 0.65rem;
     flex-shrink: 0;
   }
 
-  .about-actions {
+  .agent-actions {
     display: flex;
-    gap: 14px;
+    gap: 12px;
     flex-wrap: wrap;
   }
 
   @media (max-width: 900px) {
-    .about-grid { grid-template-columns: 1fr; gap: 40px; }
-    .about-badge { right: 32px; bottom: 20px; }
+    .agents-grid { grid-template-columns: 1fr; }
   }
 </style>

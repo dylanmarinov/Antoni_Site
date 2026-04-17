@@ -1,12 +1,22 @@
 ---
-const contactInfo = {
-  phone: "727-458-4192",
-  email: "Makakbe@hotmail.com",
-  license: "123456",
-  brokerage: "Charles Rutenberg Realty",
-  brokerageUrl: "https://gocrr.com/",
-  zillowProfile: "https://www.zillow.com/profile/Antoni%20D%20Marinov",
-};
+const agents = [
+  {
+    name: "Antoni D. Marinov",
+    phone: "727-458-4192",
+    email: "Makakbe@hotmail.com",
+    license: "123456",
+    zillowProfile: "https://www.zillow.com/profile/Antoni%20D%20Marinov",
+  },
+  {
+    name: "Dylan Marinov",
+    phone: "727-776-8787",
+    email: "dylanmarinovrealtor@gmail.com",
+    license: "",
+    zillowProfile: "https://www.zillow.com/profile/dylanmarinovrealtor",
+  },
+];
+const brokerage = "Charles Rutenberg Realty";
+const brokerageUrl = "https://gocrr.com/";
 ---
 
 <section id="contact">
@@ -18,55 +28,58 @@ const contactInfo = {
         <h2 class="section-title">Ready to Make<br/>Your Move?</h2>
         <p class="contact-intro">
           Whether you're buying your first home, selling, or building an investment portfolio
-          — I'd love to hear from you. Reach out and let's talk about your goals.
+          — we'd love to hear from you. Reach out to either of us and let's talk about your goals.
         </p>
 
-        <ul class="contact-details">
-          <li>
-            <span class="contact-icon">📞</span>
-            <div>
-              <span class="contact-detail-label">Phone</span>
-              <a href={`tel:${contactInfo.phone.replace(/\D/g, "")}`} class="contact-detail-value">
-                {contactInfo.phone}
+        <div class="agents-contact">
+          {agents.map(agent => (
+            <div class="agent-contact-card">
+              <p class="agent-contact-name">{agent.name}</p>
+              <ul class="contact-details">
+                <li>
+                  <span class="contact-icon">📞</span>
+                  <div>
+                    <span class="contact-detail-label">Phone</span>
+                    <a href={`tel:${agent.phone.replace(/\D/g, "")}`} class="contact-detail-value">
+                      {agent.phone}
+                    </a>
+                  </div>
+                </li>
+                <li>
+                  <span class="contact-icon">✉️</span>
+                  <div>
+                    <span class="contact-detail-label">Email</span>
+                    <a href={`mailto:${agent.email}`} class="contact-detail-value">
+                      {agent.email}
+                    </a>
+                  </div>
+                </li>
+                {agent.license && (
+                  <li>
+                    <span class="contact-icon">🪪</span>
+                    <div>
+                      <span class="contact-detail-label">FL License</span>
+                      <span class="contact-detail-value">{agent.license}</span>
+                    </div>
+                  </li>
+                )}
+              </ul>
+              <a href={agent.zillowProfile} target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="margin-top:12px;">
+                View Zillow Profile
               </a>
             </div>
-          </li>
-          <li>
-            <span class="contact-icon">✉️</span>
-            <div>
-              <span class="contact-detail-label">Email</span>
-              <a href={`mailto:${contactInfo.email}`} class="contact-detail-value">
-                {contactInfo.email}
-              </a>
-            </div>
-          </li>
-          <li>
-            <span class="contact-icon">🏢</span>
-            <div>
-              <span class="contact-detail-label">Brokerage</span>
-              <a href={contactInfo.brokerageUrl} target="_blank" rel="noopener noreferrer" class="contact-detail-value">
-                {contactInfo.brokerage}
-              </a>
-            </div>
-          </li>
-          <li>
-            <span class="contact-icon">🪪</span>
-            <div>
-              <span class="contact-detail-label">FL License</span>
-              <span class="contact-detail-value">{contactInfo.license}</span>
-            </div>
-          </li>
-        </ul>
+          ))}
+        </div>
 
-        <a
-          href={contactInfo.zillowProfile}
-          target="_blank"
-          rel="noopener noreferrer"
-          class="btn btn-primary"
-          style="margin-top: 8px;"
-        >
-          View My Zillow Profile
-        </a>
+        <div class="brokerage-row">
+          <span class="contact-icon">🏢</span>
+          <div>
+            <span class="contact-detail-label">Brokerage</span>
+            <a href={brokerageUrl} target="_blank" rel="noopener noreferrer" class="contact-detail-value">
+              {brokerage}
+            </a>
+          </div>
+        </div>
       </div>
 
       <div class="contact-form-wrap reveal from-right">
@@ -135,7 +148,35 @@ const contactInfo = {
     color: #5A5A6A;
     font-size: 1rem;
     line-height: 1.7;
-    margin-bottom: 36px;
+    margin-bottom: 28px;
+  }
+
+  .agents-contact {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin-bottom: 24px;
+  }
+
+  .agent-contact-card {
+    background: var(--off-white);
+    border-radius: 14px;
+    padding: 20px 24px 16px;
+  }
+
+  .agent-contact-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 14px;
+  }
+
+  .brokerage-row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-top: 4px;
   }
 
   .contact-details {
