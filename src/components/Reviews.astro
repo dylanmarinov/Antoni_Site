@@ -1,7 +1,4 @@
 ---
-// To add more reviews, copy an existing block and paste in your real review text.
-// https://www.zillow.com/profile/Antoni%20D%20Marinov#reviews
-
 const reviews = [
   {
     name: "Verified Zillow Client",
@@ -50,31 +47,38 @@ const reviews = [
 
     <div class="reviews-grid stagger">
       {reviews.map(review => (
-        <a
-          class="review-card"
-          href="https://www.zillow.com/profile/Antoni%20D%20Marinov#reviews"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label={`Read review on Zillow`}
-        >
+        <div class="review-card" role="article">
           <div class="review-quote">&ldquo;</div>
           <div class="review-stars" aria-label={`${review.rating} out of 5 stars`}>
             {"★".repeat(review.rating)}{"☆".repeat(5 - review.rating)}
           </div>
-          <blockquote class="review-text">{review.text}</blockquote>
+          <div class="review-body">
+            <blockquote class="review-text">{review.text}</blockquote>
+            <button class="review-expand" aria-label="Read full review">
+              Read more <span class="expand-arrow">↓</span>
+            </button>
+          </div>
           <div class="review-footer">
             <div class="reviewer-info">
               <strong class="reviewer-name">{review.name}</strong>
               <span class="reviewer-meta">{review.transactionType} · {review.date}</span>
             </div>
-            <img
-              src="https://www.zillowstatic.com/s3/homepage/static/zillowlogo_2x.png"
-              alt="Zillow"
-              class="zillow-logo"
-              width="60"
-            />
+            <a
+              href="https://www.zillow.com/profile/Antoni%20D%20Marinov#reviews"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="zillow-logo-link"
+              aria-label="View on Zillow"
+            >
+              <img
+                src="https://www.zillowstatic.com/s3/homepage/static/zillowlogo_2x.png"
+                alt="Zillow"
+                class="zillow-logo"
+                width="60"
+              />
+            </a>
           </div>
-        </a>
+        </div>
       ))}
     </div>
 
@@ -149,6 +153,10 @@ const reviews = [
     margin-bottom: 16px;
   }
 
+  .review-body {
+    position: relative;
+  }
+
   .review-text {
     font-size: 0.96rem;
     line-height: 1.8;
@@ -158,6 +166,8 @@ const reviews = [
     position: relative;
     z-index: 1;
   }
+
+  .review-expand { display: none; }
 
   .review-footer {
     display: flex;
@@ -186,12 +196,76 @@ const reviews = [
     filter: grayscale(1);
     transition: opacity 0.2s, filter 0.2s;
   }
-  .review-card:hover .zillow-logo { opacity: 1; filter: none; }
+  .zillow-logo-link:hover .zillow-logo { opacity: 1; filter: none; }
 
   .reviews-cta { text-align: center; }
 
+  /* ── Mobile expand/collapse ── */
   @media (max-width: 700px) {
     .reviews-grid { grid-template-columns: 1fr; }
     .review-card { padding: 32px 24px 28px; }
+    .review-card:hover { transform: none; box-shadow: var(--shadow); }
+
+    .review-body {
+      overflow: hidden;
+    }
+
+    .review-text {
+      max-height: calc(4 * 1.8 * 0.96rem);
+      overflow: hidden;
+      transition: max-height 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+      margin-bottom: 8px;
+    }
+
+    .review-card.expanded .review-text {
+      max-height: 600px;
+    }
+
+    .review-expand {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: none;
+      border: none;
+      color: var(--gold);
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      cursor: pointer;
+      padding: 6px 0 14px;
+      font-family: inherit;
+      transition: opacity 0.2s;
+    }
+
+    .review-expand:hover { opacity: 0.7; }
+
+    .expand-arrow {
+      display: inline-block;
+      transition: transform 0.35s ease;
+      font-size: 0.9rem;
+    }
+
+    .review-card.expanded .expand-arrow {
+      transform: rotate(180deg);
+    }
+
+    .review-card.expanded .review-expand {
+      color: var(--gray);
+    }
   }
 </style>
+
+<script>
+  document.addEventListener('click', (e) => {
+    const btn = (e.target as HTMLElement).closest('.review-expand');
+    if (!btn) return;
+    const card = btn.closest('.review-card');
+    if (!card) return;
+    const isExpanded = card.classList.toggle('expanded');
+    btn.querySelector('.expand-arrow')?.setAttribute('aria-label', isExpanded ? 'Collapse' : 'Expand');
+    const label = btn.querySelector('.expand-arrow');
+    const textNode = btn.childNodes[0];
+    if (textNode) textNode.textContent = isExpanded ? 'Show less ' : 'Read more ';
+  });
+</script>

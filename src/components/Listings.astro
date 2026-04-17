@@ -27,7 +27,8 @@ const listings = [
     beds: 3,
     baths: 2.5,
     sqft: 1700,
-    description: "Townhouse in a gated community featuring an open floor plan, updated kitchen, and an attached 2-car garage. A well-appointed home offering modern comfort in a secure, convenient Saint Petersburg location.",
+    description: "Townhouse in a gated community featuring an open floor plan, updated kitchen, and an attached 2-car garage.",
+    descExtra: "A well-appointed home offering modern comfort in a secure, convenient Saint Petersburg location.",
     zillowLink: "https://www.zillow.com/profile/Antoni%20D%20Marinov",
     image: `${base}/listing-neil-dr.webp`,
   },
@@ -41,7 +42,8 @@ const listings = [
     beds: 3,
     baths: 2,
     sqft: 2342,
-    description: "Renovated single-family home in a gated golf course community featuring an open floor plan, modern kitchen, and a private pool. A stunning Tampa retreat with premium finishes throughout.",
+    description: "Renovated single-family home in a gated golf course community featuring an open floor plan, modern kitchen, and a private pool.",
+    descExtra: "A stunning Tampa retreat with premium finishes throughout.",
     zillowLink: "https://www.zillow.com/profile/Antoni%20D%20Marinov",
     image: `${base}/listing-pelican-island.webp`,
   },
@@ -80,7 +82,10 @@ const listings = [
               </div>
             )}
 
-            <p class="listing-desc">{listing.description}</p>
+            <p class="listing-desc">
+              {listing.description}
+              {listing.descExtra && <span class="desc-extra"> {listing.descExtra}</span>}
+            </p>
 
             <a href={listing.zillowLink} target="_blank" rel="noopener noreferrer" class="listing-link">
               View Listing →
@@ -227,5 +232,6 @@ const listings = [
 
   @media (max-width: 600px) {
     .listings-grid { grid-template-columns: 1fr; }
+    .desc-extra { display: none; }
   }
 </style>

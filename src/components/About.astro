@@ -262,5 +262,12 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
   @media (max-width: 600px) {
     .about-header { margin-bottom: 36px; }
+    .agent-info p {
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .agent-creds li:nth-child(n+4) { display: none; }
   }
 </style>
