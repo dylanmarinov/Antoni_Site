@@ -187,39 +187,48 @@
 </style>
 
 <script>
-  const backdrop = document.getElementById('contact-modal');
-  const closeBtn = document.getElementById('modal-close');
-
   function openModal() {
-    backdrop?.classList.add('open');
-    backdrop?.removeAttribute('aria-hidden');
+    const backdrop = document.getElementById('contact-modal');
+    if (!backdrop) return;
+    backdrop.classList.add('open');
+    backdrop.removeAttribute('aria-hidden');
     document.body.style.overflow = 'hidden';
   }
 
   function closeModal() {
-    backdrop?.classList.remove('open');
-    backdrop?.setAttribute('aria-hidden', 'true');
+    const backdrop = document.getElementById('contact-modal');
+    if (!backdrop) return;
+    backdrop.classList.remove('open');
+    backdrop.setAttribute('aria-hidden', 'true');
     document.body.style.overflow = '';
   }
 
-  // Close on backdrop click
-  backdrop?.addEventListener('click', (e) => {
-    if (e.target === backdrop) closeModal();
-  });
+  // Single event delegation listener on the document
+  document.addEventListener('click', (e) => {
+    const target = e.target as HTMLElement;
 
-  // Close on X button
-  closeBtn?.addEventListener('click', closeModal);
+    // Open: any element with data-modal="contact"
+    if (target.closest('[data-modal="contact"]')) {
+      e.preventDefault();
+      openModal();
+      return;
+    }
+
+    // Close: X button
+    if (target.closest('#modal-close')) {
+      closeModal();
+      return;
+    }
+
+    // Close: clicking the backdrop itself (not the panel)
+    const backdrop = document.getElementById('contact-modal');
+    if (backdrop && target === backdrop) {
+      closeModal();
+    }
+  });
 
   // Close on Escape key
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') closeModal();
-  });
-
-  // Wire up all buttons with data-modal="contact"
-  document.querySelectorAll('[data-modal="contact"]').forEach(btn => {
-    btn.addEventListener('click', (e) => {
-      e.preventDefault();
-      openModal();
-    });
   });
 </script>
